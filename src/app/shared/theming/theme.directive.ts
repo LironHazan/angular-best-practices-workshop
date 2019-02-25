@@ -1,16 +1,15 @@
-import {Directive, ElementRef, Inject, OnDestroy, OnInit, Renderer2} from '@angular/core';
+import {Directive, ElementRef, OnDestroy, OnInit, Renderer2} from '@angular/core';
 import {Subscription} from 'rxjs';
-import {DOCUMENT} from '@angular/common';
 import {ThemeService} from './theme.service';
 
 export const themes = {
   oceanBlueThemProps : {
-    '--background' : 'aliceblue',
-    '--text-color': '#0F0F0F',
+    'background-color' : 'aliceblue',
+     color: '#0F0F0F',
   },
   deepPurpleThemProps: {
-    '--background' : 'purple',
-    '--text-color': 'whitesmoke',
+    'background-color' : 'purple',
+     color: 'whitesmoke',
   }
 };
 
@@ -24,7 +23,6 @@ export class ThemeDirective implements OnInit, OnDestroy {
 
   constructor( private elementRef: ElementRef,
                private renderer: Renderer2,
-               @Inject(DOCUMENT) private document: any,
                private themService: ThemeService) { }
 
   ngOnInit() {
@@ -38,11 +36,9 @@ export class ThemeDirective implements OnInit, OnDestroy {
   }
 
   updateTheme(themeName) {
-    const element = this.elementRef.nativeElement;
     const theme = themes[themeName];
     for (const key of Object.keys(theme)) {
-      element.style.setProperty(key, theme[key]);
-      this.renderer.setProperty(this.document.body, key, theme[key]);
+       this.renderer.setStyle(this.elementRef.nativeElement, key, theme[key]);
     }
   }
 
