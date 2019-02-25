@@ -1,4 +1,4 @@
-import {Directive, ElementRef, Inject, OnDestroy, OnInit} from '@angular/core';
+import {Directive, ElementRef, Inject, OnDestroy, OnInit, Renderer2} from '@angular/core';
 import {Subscription} from 'rxjs';
 import {DOCUMENT} from '@angular/common';
 import {ThemeService} from './theme.service';
@@ -23,6 +23,7 @@ export class ThemeDirective implements OnInit, OnDestroy {
   private themServiceSubscription: Subscription;
 
   constructor( private elementRef: ElementRef,
+               private renderer: Renderer2,
                @Inject(DOCUMENT) private document: any,
                private themService: ThemeService) { }
 
@@ -41,7 +42,7 @@ export class ThemeDirective implements OnInit, OnDestroy {
     const theme = themes[themeName];
     for (const key of Object.keys(theme)) {
       element.style.setProperty(key, theme[key]);
-      this.document.body.style.setProperty(key, theme[key]);
+      this.renderer.setProperty(this.document.body, key, theme[key]);
     }
   }
 

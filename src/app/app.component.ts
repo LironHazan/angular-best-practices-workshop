@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {ThemeService} from './shared/theme.service';
+import {ThemeService} from './shared/theming/theme.service';
 
 @Component({
   selector: 'app-root',
