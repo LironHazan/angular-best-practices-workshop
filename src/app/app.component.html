@@ -4,7 +4,8 @@
   <span class="seperator"></span>
   <a routerLink="awesomeness"> awesomeness </a>
 </app-header>
-<main class="main">
+<main class="main" appTheme>
+  <button (click)="toggleTheme($event)">toogle theme</button>
   <router-outlet></router-outlet>
 </main>
 <app-footer></app-footer>
