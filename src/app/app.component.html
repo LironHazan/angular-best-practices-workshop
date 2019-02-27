@@ -3,10 +3,14 @@
   <a routerLink="/"> home </a>
   <span class="seperator"></span>
   <a routerLink="awesomeness"> awesomeness </a>
+  <span class="seperator"></span>
+  <a routerLink="family"> family </a>
 </app-header>
 <main class="main" appTheme>
-  <button (click)="toggleTheme($event)">toogle theme</button>
-  <router-outlet></router-outlet>
+  <section [@routeAnimations]="prepareRoute(outlet)">
+    <button (click)="toggleTheme($event)">toogle theme</button>
+    <router-outlet #outlet="outlet"></router-outlet>
+  </section>
 </main>
 <app-footer></app-footer>
 

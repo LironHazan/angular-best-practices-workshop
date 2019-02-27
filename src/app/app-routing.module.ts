@@ -1,11 +1,14 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import {FirstChildComponent} from './first-child/first-child.component';
 
 const routes: Routes = [
   {
     path: 'awesomeness',
-    loadChildren: './awesome-feature/awesome-feature.module#AwesomeFeatureModule'
+    loadChildren: './awesome-feature/awesome-feature.module#AwesomeFeatureModule',
+    data: {animation: 'AwesomePage'}
   },
+  { path: 'family', component: FirstChildComponent, data: {animation: 'FamilyPage'} },
   {
     path: '',
     redirectTo: '',
