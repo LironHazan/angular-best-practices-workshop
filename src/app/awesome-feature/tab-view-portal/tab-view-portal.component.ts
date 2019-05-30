@@ -8,7 +8,7 @@ import {CdkPortal, DomPortalOutlet} from '@angular/cdk/portal';
 })
 export class TabViewPortalComponent implements AfterViewInit, OnDestroy {
 
-  @ViewChild(CdkPortal)
+  @ViewChild(CdkPortal, {static: false})
   private portal: CdkPortal;
 
   private host: DomPortalOutlet;

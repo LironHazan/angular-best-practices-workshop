@@ -8,7 +8,7 @@
 </app-header>
 <main class="main" appTheme>
   <section [@routeAnimations]="prepareRoute(outlet)">
-    <button (click)="toggleTheme($event)">toogle theme</button>
+    <button (click)="toggleTheme()">toogle theme</button>
     <router-outlet #outlet="outlet"></router-outlet>
   </section>
 </main>

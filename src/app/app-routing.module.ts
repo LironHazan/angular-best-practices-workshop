@@ -5,7 +5,7 @@ import {FirstChildComponent} from './first-child/first-child.component';
 const routes: Routes = [
   {
     path: 'awesomeness',
-    loadChildren: './awesome-feature/awesome-feature.module#AwesomeFeatureModule',
+    loadChildren: () => import('./awesome-feature/awesome-feature.module').then(m => m.AwesomeFeatureModule),
     data: {animation: 'AwesomePage'}
   },
   { path: 'family', component: FirstChildComponent, data: {animation: 'FamilyPage'} },
