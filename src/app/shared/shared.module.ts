@@ -7,20 +7,28 @@ import { ThemeDirective } from './theming/theme.directive';
 import { SizePipe } from './pipes/size.pipe';
 import { CatsComponent } from './cats/cats.component';
 import {HttpClientModule} from '@angular/common/http';
+import { FormExampleComponent } from './form-example/form-example.component';
+import {NavMenuComponent} from './nav-menu/nav-menu.component';
+import {PortalModule} from '@angular/cdk/portal';
 
 @NgModule({
   imports:      [ CommonModule,
     FormsModule,
     HttpClientModule,
+    PortalModule,
     MaterialCdkModule],
   declarations: [  NiceInputComponent,
     ThemeDirective,
     SizePipe,
-    CatsComponent],
+    CatsComponent,
+    FormExampleComponent,
+    NavMenuComponent],
   exports: [ MaterialCdkModule,
+    PortalModule,
     NiceInputComponent,
     CatsComponent,
     SizePipe,
-    ThemeDirective ]
+    ThemeDirective,
+    NavMenuComponent]
 })
 export class SharedModule { }

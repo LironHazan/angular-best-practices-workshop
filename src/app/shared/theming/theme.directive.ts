@@ -43,7 +43,7 @@ export class ThemeDirective implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    if (this.themServiceSubscription) this.themServiceSubscription.unsubscribe();
+    this.themServiceSubscription && this.themServiceSubscription.unsubscribe();
   }
 
 }
